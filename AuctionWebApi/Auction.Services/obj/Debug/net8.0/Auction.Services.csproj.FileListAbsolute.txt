@@ -1,0 +1,15 @@
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\bin\Debug\net8.0\Auction.Services.deps.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\bin\Debug\net8.0\Auction.Services.runtimeconfig.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\bin\Debug\net8.0\Auction.Services.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\bin\Debug\net8.0\Auction.Services.pdb
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\Auction.Services.csproj.AssemblyReference.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\Auction.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\Auction.Services.AssemblyInfoInputs.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\Auction.Services.AssemblyInfo.cs
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\Auction.Services.csproj.CoreCompileInputs.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\Auction.Services.sourcelink.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\Auction.Services.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\refint\Auction.Services.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\Auction.Services.pdb
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\Auction.Services.genruntimeconfig.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Services\obj\Debug\net8.0\ref\Auction.Services.dll
