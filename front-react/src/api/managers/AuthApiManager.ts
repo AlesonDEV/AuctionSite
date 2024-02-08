@@ -1,6 +1,6 @@
 import { axiosAuthConfig } from '@/api/axiosConfig';
 
-export class AuthApiMananger {
+export default class AuthApiManager {
   static async logIn({ email, password }: { email: string; password: string }) {
     return await axiosAuthConfig.post(`/api/auth/user/login/`, {
       email,

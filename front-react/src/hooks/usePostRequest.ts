@@ -10,7 +10,7 @@ import {
 } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
 import { AxiosError } from 'axios';
-import { AuthApiMananger } from '@/api/managers/AuthApiManager';
+import AuthApiManager from '@/api/managers/AuthApiManager';
 import { COOKIES } from '@/api/apiConsts';
 import { useState } from 'react';
 
@@ -45,7 +45,7 @@ export function usePostRequest<
 
   const refreshMutation = useMutation({
     mutationFn: (variables: { refreshToken: string }) => {
-      return AuthApiMananger.refresh(variables);
+      return AuthApiManager.refresh(variables);
     },
 
     onError: (error, variables, context) => {

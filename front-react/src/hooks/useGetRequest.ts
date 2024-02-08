@@ -2,7 +2,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import React from 'react';
-import { AuthApiMananger } from '../../../api/manangers/AuthApiMananger';
+import AuthApiManager from '@/api/managers/AuthApiManager';
 import { COOKIES } from '@/api/apiConsts';
 import { AxiosError } from 'axios';
 
@@ -34,7 +34,7 @@ export function useGetRequest({
   });
   const refreshMutation = useMutation({
     mutationFn: (variables: { refreshToken: string }) => {
-      return AuthApiMananger.refresh(variables);
+      return AuthApiManager.refresh(variables);
     },
     onError: (error, variables, context) => {
       Cookies.remove(COOKIES.ACCESS);

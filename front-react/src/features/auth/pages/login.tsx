@@ -5,230 +5,131 @@ import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import Cookies from 'js-cookie';
 import FormControl from '@mui/joy/FormControl';
-import FormLabel, { formLabelClasses } from '@mui/joy/FormLabel';
+import FormLabel, {formLabelClasses} from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Typography from '@mui/joy/Typography';
 import Stack from '@mui/joy/Stack';
 
-import { useForm } from 'react-hook-form';
-import { usePostRequest } from '@/hooks/usePostRequest';
-import { AuthApiMananger } from '@/hooks/useGetRequest';
-import { COOKIES } from '@/api/apiConsts';
-import { FormHelperText } from '@mui/joy';
-import { AxiosError } from 'axios';
-import { useRouter } from 'next/navigation';
-import SingleJobSitePage from '@/features/jobSite/pages/SingleJobSitePage';
-import JobSitePage from '@/features/jobSite/pages/JobSitePage';
-import logo from '../../../assets/images/logo-removebg.png';
-import { Link } from '@mui/joy';
+import {useForm} from 'react-hook-form';
+import {usePostRequest} from '@/hooks/usePostRequest';
+import AuthApiManager from '@/api/managers/AuthApiManager';
+import {COOKIES} from '@/api/apiConsts';
+import {FormHelperText} from '@mui/joy';
+import {AxiosError} from 'axios';
+import {useRouter} from 'next/navigation';
+
+
+import {Link} from '@mui/joy';
+
 
 export type Inputs = {
-  email: string;
-  password: string;
+    email: string;
+    password: string;
 };
 
 export const USER_CREDS = 'user_creds';
 
-export default function JoySignInSideTemplate() {
-  const [creds, setCreds] = React.useState<Inputs>();
+export default function LoginPage() {
+    const [creds, setCreds] = React.useState<Inputs>();
 
-  const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    watch,
-    setError,
-    formState: { errors },
-  } = useForm<Inputs>();
+    const router = useRouter();
+    const {
+        register,
+        handleSubmit,
+        watch,
+        setError,
+        formState: {errors},
+    } = useForm<Inputs>();
 
-  const logInRequest = usePostRequest({
-    mutationFn: (params: Inputs) => {
-      setCreds(params);
-      return AuthApiMananger.logIn(params);
-    },
-    onSuccess: (data, variables, context) => {
-      Cookies.set(COOKIES.ACCESS, data.data['access_token']);
-      Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
-      // router.push('/');
-      router.push('/');
-      // localStorage.setItem(USER_CREDS, JSON.stringify(creds));
-    },
-    onError: (error: AxiosError, variables, context) => {
-      switch (error.response?.status) {
-        case 401:
-          //wrong password
-          setError('password', { type: 'custom', message: 'wrong password' });
-          break;
-        case 404:
-          //wrong password
-          setError('email', { type: 'custom', message: 'no such user' });
-          break;
-      }
-      Cookies.remove(COOKIES.ACCESS);
-      Cookies.remove(COOKIES.REFRESH);
-    },
-  });
+    const logInRequest = usePostRequest({
+        mutationFn: (params: Inputs) => {
+            setCreds(params);
+            return AuthApiManager.logIn(params);
+        },
+        onSuccess: (data, variables, context) => {
+            Cookies.set(COOKIES.ACCESS, data.data['access_token']);
+            Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
+            // router.push('/');
+            router.push('/');
+            // localStorage.setItem(USER_CREDS, JSON.stringify(creds));
+        },
+        onError: (error: AxiosError, variables, context) => {
+            switch (error.response?.status) {
+                case 401:
+                    //wrong password
+                    setError('password', {type: 'custom', message: 'wrong password'});
+                    break;
+                case 404:
+                    //wrong password
+                    setError('email', {type: 'custom', message: 'no such user'});
+                    break;
+            }
+            Cookies.remove(COOKIES.ACCESS);
+            Cookies.remove(COOKIES.REFRESH);
+        },
+    });
 
-  function onSubmit(data: Inputs) {
-    logInRequest.mutate(data);
-  }
-  return (
-    <>
-      <GlobalStyles
-        styles={{
-          ':root': {
-            '--Collapsed-breakpoint': '769px', // form will stretch when viewport is below `769px`
-            '--Cover-width': '50vw', // must be `vw` only
-            '--Form-maxWidth': '800px',
-            '--Transition-duration': '0.4s', // set to `none` to disable transition
-          },
-        }}
-      />
-      <Box
-        sx={(theme) => ({
-          width:
-            'clamp(100vw - var(--Cover-width), (var(--Collapsed-breakpoint) - 100vw) * 999, 100vw)',
-          transition: 'width var(--Transition-duration)',
-          transitionDelay: 'calc(var(--Transition-duration) + 0.1s)',
-          position: 'relative',
-          zIndex: 1,
-          display: 'flex',
-          justifyContent: 'flex-end',
-          backdropFilter: 'blur(12px)',
-          backgroundColor: 'rgba(255 255 255 / 0.2)',
-          [theme.getColorSchemeSelector('dark')]: {
-            backgroundColor: 'rgba(19 19 24 / 0.4)',
-          },
-        })}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '100dvh',
-            width:
-              'clamp(var(--Form-maxWidth), (var(--Collapsed-breakpoint) - 100vw) * 999, 100%)',
-            maxWidth: '100%',
-            px: 2,
-          }}
-        >
-          <Box
-            component="header"
-            sx={{
-              py: 3,
-              display: 'flex',
-              alignItems: 'left',
-              justifyContent: 'end',
-            }}
-          >
-            <Link
-                    href={'/'}
-                    sx={{
-                        // backgroundColor: 'cyan'
-                        // maxWidth: '8rem'
-                        width: '100%',
-                        display: 'flex',
-                        justifyContent: 'center',
-                    }}
-                >
-                    <img
-                        style={{
-                            maxWidth: '12rem',
-                            // marginRight: {md: '50px'}
-                        }}
-                        src={logo.src}
-                    />
-                </Link>
-            {/* <ColorSchemeToggle /> */}
-          </Box>
-          <Box
-            component="main"
-            sx={{
-              my: 'auto',
-              py: 2,
-              pb: 5,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 2,
-              width: 400,
-              maxWidth: '100%',
-              mx: 'auto',
-              borderRadius: 'sm',
-              '& form': {
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 2,
-              },
-              [`& .${formLabelClasses.asterisk}`]: {
-                visibility: 'hidden',
-              },
-            }}
-          >
-            <Stack gap={4} sx={{ mb: 2 }}>
-              <Stack gap={1}>
-                <Typography level="h3">Sign in</Typography>
-              </Stack>
+    function onSubmit(data: Inputs) {
+        logInRequest.mutate(data);
+    }
 
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <FormControl error={errors.email != null}>
-                  <FormLabel>Email</FormLabel>
-                  <Input
-                    {...register('email', { required: true })}
-                    type="email"
-                  />
-                  {errors.email?.message && (
-                    <FormHelperText>{errors.email?.message}</FormHelperText>
-                  )}
-                </FormControl>
-                <FormControl error={errors.password != null}>
-                  <FormLabel>Password</FormLabel>
-                  <Input
-                    type="password"
-                    {...register('password', { required: true })}
-                  />
-                  {errors.password?.message && (
-                    <FormHelperText>{errors.password?.message}</FormHelperText>
-                  )}
-                </FormControl>
-                <Stack gap={4} sx={{ mt: 2 }}>
-                  <Button type="submit" fullWidth>
-                    Sign in
-                  </Button>
+    return (
+        <>
+            <GlobalStyles
+                styles={{
+                    ':root': {
+                        '--Collapsed-breakpoint': '769px', // form will stretch when viewport is below `769px`
+                        '--Cover-width': '50vw', // must be `vw` only
+                        '--Form-maxWidth': '800px',
+                        '--Transition-duration': '0.4s', // set to `none` to disable transition
+                    },
+                }}
+            />
+
+            <Stack
+                gap={4}
+                sx={{
+                    mb: 2,
+                    width: '100vw',
+                    height: '100dvh',
+                    maxWidth: '1000px',
+                }}
+                alignItems={'center'}
+                justifyContent={'center'}
+            >
+                <Stack gap={1}>
+                    <Typography level="h3">Sign in</Typography>
                 </Stack>
-              </form>
+
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <FormControl error={errors.email != null}>
+                        <FormLabel>Email</FormLabel>
+                        <Input
+                            {...register('email', {required: true})}
+                            type="email"
+                        />
+                        {errors.email?.message && (
+                            <FormHelperText>{errors.email?.message}</FormHelperText>
+                        )}
+                    </FormControl>
+                    <FormControl error={errors.password != null}>
+                        <FormLabel>Password</FormLabel>
+                        <Input
+                            type="password"
+                            {...register('password', {required: true})}
+                        />
+                        {errors.password?.message && (
+                            <FormHelperText>{errors.password?.message}</FormHelperText>
+                        )}
+                    </FormControl>
+                    <Stack gap={4} sx={{mt: 2}}>
+                        <Button type="submit" fullWidth>
+                            Sign in
+                        </Button>
+                    </Stack>
+                </form>
             </Stack>
-          </Box>
-          {/* <Box component="footer" sx={{ py: 3 }}>
-            <Typography level="body-xs" textAlign="center">
-              © Your company {new Date().getFullYear()}
-            </Typography>
-          </Box> */}
-        </Box>
-      </Box>
-      <Box
-        sx={(theme) => ({
-          height: '100%',
-          position: 'fixed',
-          right: 0,
-          top: 0,
-          bottom: 0,
-          left: 'clamp(0px, (100vw - var(--Collapsed-breakpoint)) * 999, 100vw - var(--Cover-width))',
-          transition:
-            'background-image var(--Transition-duration), left var(--Transition-duration) !important',
-          transitionDelay: 'calc(var(--Transition-duration) + 0.1s)',
-          backgroundColor: 'background.level1',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundImage:
-            'url(https://images.unsplash.com/photo-1527181152855-fc03fc7949c8?auto=format&w=1000&dpr=2)',
-          [theme.getColorSchemeSelector('dark')]: {
-            backgroundImage:
-              'url(https://images.unsplash.com/photo-1572072393749-3ca9c8ea0831?auto=format&w=1000&dpr=2)',
-          },
-        })}
-      />
-    </>
-    //   <SingleJobSitePage />
-  );
+        </>
+        //   <SingleJobSitePage />
+    );
 }

@@ -7,15 +7,21 @@ import {AuctionCarouselItem} from "@/features/home/sections/components/AuctionCa
 export const AuctionsCorousel = () => {
     return (
         <section style={{
-            height: '100lvh',
+            height: '40rem',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
+            gap: '5rem',
         }}>
-            <Typography level={'h3'}>The Most Sought-After Auctions</Typography>
-            <Stack>
-                <AuctionCarouselItem />
+            <Typography
+                level={'h1'}
+                color={'success'}
+            >The Most Sought-After Auctions</Typography>
+            <Stack direction={'row'} spacing={'2rem'} >
+                <AuctionCarouselItem/>
+                <AuctionCarouselItem/>
+                <AuctionCarouselItem/>
             </Stack>
         </section>
     );

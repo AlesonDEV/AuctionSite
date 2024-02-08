@@ -11,7 +11,7 @@ export const WelcomeSection = () => {
         <section>
             <Stack
                 sx={{
-                    height: '100lvh',
+                    height: '40rem',
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -20,9 +20,12 @@ export const WelcomeSection = () => {
                 <Box>
                     <Typography
                         sx={{
-                            fontSize: '120px',
+                            fontSize: '100px',
                             fontWeight: '700',
                         }}
+                        color={'success'}
+
+                        // level={'h1'}
                     >Turbinance</Typography>
                     <Typography
 
