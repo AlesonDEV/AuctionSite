@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Auction.Domain.Models
 {
-    [Table("auction")]
     public class Auction
     {
         [Key]
@@ -16,11 +15,11 @@ namespace Auction.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        [Column("title", TypeName = "varchar")]
+        [Column("title", TypeName = "varchar(255)")]
         public string Title { get; set; } = null!;
 
         [Required]
-        [Column("categoty_id")]
+        [Column("category_id")]
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
 

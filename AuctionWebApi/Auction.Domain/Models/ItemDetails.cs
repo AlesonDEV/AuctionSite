@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Auction.Domain.Models
 {
-    [Table("item_details")]
+    [Table("Item_Details")]
     public class ItemDetails
     {
         [Key, ForeignKey(nameof(AuctionDetails))]
@@ -16,7 +16,7 @@ namespace Auction.Domain.Models
         public int AuctionDetailsId { get; set; }
 
         [Required]
-        [Column("condition_id", TypeName = "varchar255")]
+        [Column("condition_id")]
         [ForeignKey(nameof(Condition))]
         public int ConditionId { get; set; }
 

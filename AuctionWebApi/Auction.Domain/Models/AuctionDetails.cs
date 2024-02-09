@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Auction.Domain.Models
 {
-    [Table("auction_details")]
+    [Table("Auction_Details")]
     public class AuctionDetails
     {
         [Key, ForeignKey(nameof(Auction))]
@@ -16,12 +16,12 @@ namespace Auction.Domain.Models
         public int AuctionId { get; set; }
 
         [Column("current_buyer_id")]
-        [ForeignKey(nameof(User))]
+        [ForeignKey(nameof(Customer))]
         public int CurrentBuyerId { get; set; }
 
         [Required]
         [MinLength(70)]
-        [Column("description", TypeName = "varchar")]
+        [Column("description", TypeName = "varchar(2000)")]
         public string Description { get; set; } = null!;
 
         [Required]
@@ -29,7 +29,7 @@ namespace Auction.Domain.Models
         public DateTime StartTime { get; set; }
 
         [Required]
-        [Column("end_time", TypeName = "datatime")]
+        [Column("end_time", TypeName = "datetime")]
         public DateTime EndTime { get; set; }
 
         [Required]
@@ -41,7 +41,7 @@ namespace Auction.Domain.Models
         public decimal CurrentPrice { get; set; }
 
         //Reference to table User (Many to one)
-        public User User { get; set; } = null!;
+        public Customer Customer { get; set; } = null!;
 
         //Reference to table Auction (One to one)
         public Auction Auction { get; set; } = null!;

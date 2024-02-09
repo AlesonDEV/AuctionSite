@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 
 namespace Auction.Domain.Models
 {
-    [Table("photo")]
     public class Photo
     {
         [Key]
         public int Id { get; set; }
 
         [Required]
-        [Column("file_path", TypeName = "varchar")]
+        [Column("file_path", TypeName = "varchar(255)")]
         public string FilePath { get; set; } = null!;
 
-        [Column("binary_data", TypeName = "varchar")]
+        [Column("binary_data", TypeName = "varchar(500)")]
         public string BinaryData { get; set; } = null!;
 
         [Required]

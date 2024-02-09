@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Auction.Domain.Models
 {
-    [Table("contact_type")]
+    [Table("Contact_Type")]
     public class ContactType
     {
         [Key]

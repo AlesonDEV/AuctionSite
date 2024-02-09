@@ -1,4 +1,6 @@
 ﻿using Auction.Domain.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Auctiion.DataAccess.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+        public DataContext(DbContextOptions options) : base(options) { }
 
         //Tables set
         public DbSet<Auction.Domain.Models.Auction> Auctions { get; set; }
@@ -43,11 +45,12 @@ namespace Auctiion.DataAccess.Data
 
         public DbSet<Status> Statuses { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         //Fluent Api
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             //Setup the many to many relationships
             //Many with many: AuctionUser
             modelBuilder.Entity<AuctionUser>()
@@ -59,7 +62,7 @@ namespace Auctiion.DataAccess.Data
                            .HasForeignKey(a => a.AuctionId);
 
             modelBuilder.Entity<AuctionUser>()
-                           .HasOne( u => u.User)
+                           .HasOne( u => u.Customer)
                            .WithMany(au => au.AuctionUser)
                            .HasForeignKey(u => u.UserId);
 
@@ -87,9 +90,10 @@ namespace Auctiion.DataAccess.Data
                            .HasForeignKey(u => u.BidId);
 
             modelBuilder.Entity<BidUser>()
-                           .HasOne(u => u.User)
+                           .HasOne(u => u.Customer)
                            .WithMany(bu => bu.BidUser)
                            .HasForeignKey(u => u.UserId);
+
         }
     }
 }

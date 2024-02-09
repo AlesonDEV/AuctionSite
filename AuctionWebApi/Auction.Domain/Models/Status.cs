@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Auction.Domain.Models
 {
-    [Table("status")]
     public class Status
     {
         [Key]
@@ -16,7 +15,7 @@ namespace Auction.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        [Column("name", TypeName = "varchar")]
+        [Column("name", TypeName = "varchar(255)")]
         public string Name { get; set; } = null!;
 
         //Reference to table Auction (One to Many)

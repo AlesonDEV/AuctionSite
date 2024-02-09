@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Auction.Domain.Models
 {
-    [Table("bid")]
     public class Bid
     {
         [Key]

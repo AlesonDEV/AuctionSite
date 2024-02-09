@@ -1,0 +1,15 @@
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\bin\Release\net8.0\Auction.Domain.deps.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\bin\Release\net8.0\Auction.Domain.runtimeconfig.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\bin\Release\net8.0\Auction.Domain.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\bin\Release\net8.0\Auction.Domain.pdb
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\Auction.Domain.csproj.AssemblyReference.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\Auction.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\Auction.Domain.AssemblyInfoInputs.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\Auction.Domain.AssemblyInfo.cs
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\Auction.Domain.csproj.CoreCompileInputs.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\Auction.Domain.sourcelink.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\Auction.Domain.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\refint\Auction.Domain.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\Auction.Domain.pdb
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\Auction.Domain.genruntimeconfig.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Domain\obj\Release\net8.0\ref\Auction.Domain.dll

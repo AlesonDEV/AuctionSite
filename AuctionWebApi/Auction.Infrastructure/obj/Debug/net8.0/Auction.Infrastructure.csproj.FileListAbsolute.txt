@@ -10,3 +10,6 @@ C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj
 C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Debug\net8.0\refint\Auction.Infrastructure.dll
 C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Debug\net8.0\Auction.Infrastructure.pdb
 C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Debug\net8.0\ref\Auction.Infrastructure.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Debug\net8.0\Auction.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\bin\Debug\net8.0\Auction.Infrastructure.runtimeconfig.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Debug\net8.0\Auction.Infrastructure.genruntimeconfig.cache

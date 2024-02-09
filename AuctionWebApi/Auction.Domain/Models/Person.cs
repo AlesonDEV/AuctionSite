@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Auction.Domain.Models
 {
-    [Table("person")]
     public class Person
     {
         [Key]
@@ -16,11 +15,11 @@ namespace Auction.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        [Column("first_name", TypeName = "varchar")]
+        [Column("first_name", TypeName = "varchar(255)")]
         public string FirstName { get; set; } = null!;
 
         [Required]
-        [Column("last_name", TypeName = "varchar")]
+        [Column("last_name", TypeName = "varchar(255)")]
         public string LastName { get; set; } = null!;
 
         [Required]
@@ -29,15 +28,8 @@ namespace Auction.Domain.Models
         public int RegionId { get; set; }
 
         [Required]
-        [Column("settlement", TypeName = "varchar")]
+        [Column("settlement", TypeName = "varchar(255)")]
         public string Settlement { get; set; } = null!;
-
-        [Required]
-        [Column("hashed_password", TypeName = "varchar")]
-        public string HashedPassword { get; set; } = null!;
-
-        [Column("hashed_reserved_password", TypeName = "varchar")]
-        public string HashedReservedPassword { get; set; } = null!;
 
         //Reference to table Region (Many to one)
         public Region Region { get; set; } = null!;

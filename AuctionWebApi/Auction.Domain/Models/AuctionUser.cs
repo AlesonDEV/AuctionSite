@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Auction.Domain.Models
 {
     //Represent relationship between auctions and users (Many to many)
-    [Table("auction_user")]
+    [Table("Auction_User")]
     public class AuctionUser
     {
         [Column("auction_id")]
@@ -22,6 +22,6 @@ namespace Auction.Domain.Models
         public Auction Auction { get; set; } = null!;
 
         //Reference to table User (Many to one)
-        public User User { get; set; } = null!;
+        public Customer Customer { get; set; } = null!;
     }
 }
