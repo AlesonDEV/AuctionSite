@@ -3,21 +3,21 @@ import {COOKIES, URL} from '@/api/apiConsts';
 import axios from 'axios';
 
 export const axiosAuthConfig = axios.create({
-    baseURL: URL.AUTH,
+    baseURL: URL.SERVICE,
     headers: {
         'Content-Type': 'application/json',
         accept: 'application/json',
     },
 });
 export const axiosIntegrationConfig = axios.create({
-    baseURL: URL.INTEGRATION,
+    baseURL: URL.SERVICE,
     headers: {
         'Content-Type': 'application/json',
         accept: 'application/json',
     },
 });
 export const axiosGenerateConfig = axios.create({
-    baseURL: URL.GENERATE,
+    baseURL: URL.SERVICE,
     headers: {
         'Content-Type': 'application/pdf',
         accept: 'application/pdf',

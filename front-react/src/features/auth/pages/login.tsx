@@ -14,7 +14,7 @@ import {useForm} from 'react-hook-form';
 import {usePostRequest} from '@/hooks/usePostRequest';
 import AuthApiManager from '@/api/managers/AuthApiManager';
 import {COOKIES} from '@/api/apiConsts';
-import {FormHelperText} from '@mui/joy';
+import {Card, FormHelperText} from '@mui/joy';
 import {AxiosError} from 'axios';
 import {useRouter} from 'next/navigation';
 
@@ -44,11 +44,11 @@ export default function LoginPage() {
     const logInRequest = usePostRequest({
         mutationFn: (params: Inputs) => {
             setCreds(params);
-            return AuthApiManager.logIn(params);
+            return AuthApiManager.login(params);
         },
         onSuccess: (data, variables, context) => {
             Cookies.set(COOKIES.ACCESS, data.data['access_token']);
-            Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
+            // Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
             // router.push('/');
             router.push('/');
             // localStorage.setItem(USER_CREDS, JSON.stringify(creds));
@@ -74,7 +74,12 @@ export default function LoginPage() {
     }
 
     return (
-        <>
+        <Box
+            sx={{
+                flex: '1',
+                width: '100%',
+            }}
+        >
             <GlobalStyles
                 styles={{
                     ':root': {
@@ -97,39 +102,56 @@ export default function LoginPage() {
                 alignItems={'center'}
                 justifyContent={'center'}
             >
-                <Stack gap={1}>
-                    <Typography level="h3">Sign in</Typography>
-                </Stack>
-
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <FormControl error={errors.email != null}>
-                        <FormLabel>Email</FormLabel>
-                        <Input
-                            {...register('email', {required: true})}
-                            type="email"
-                        />
-                        {errors.email?.message && (
-                            <FormHelperText>{errors.email?.message}</FormHelperText>
-                        )}
-                    </FormControl>
-                    <FormControl error={errors.password != null}>
-                        <FormLabel>Password</FormLabel>
-                        <Input
-                            type="password"
-                            {...register('password', {required: true})}
-                        />
-                        {errors.password?.message && (
-                            <FormHelperText>{errors.password?.message}</FormHelperText>
-                        )}
-                    </FormControl>
-                    <Stack gap={4} sx={{mt: 2}}>
-                        <Button type="submit" fullWidth>
-                            Sign in
-                        </Button>
+                <Card sx={{
+                    padding: '2rem'
+                }}>
+                    <Stack gap={1}>
+                        <Typography level="h3">Sign in</Typography>
                     </Stack>
-                </form>
+
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <FormControl error={errors.email != null}>
+                            <FormLabel>Email</FormLabel>
+                            <Input
+                                {...register('email', {required: true})}
+                                type="email"
+                            />
+                            {errors.email?.message && (
+                                <FormHelperText>{errors.email?.message}</FormHelperText>
+                            )}
+                        </FormControl>
+                        <FormControl error={errors.password != null}>
+                            <FormLabel>Password</FormLabel>
+                            <Input
+                                type="password"
+                                {...register('password', {required: true})}
+                            />
+                            {errors.password?.message && (
+                                <FormHelperText>{errors.password?.message}</FormHelperText>
+                            )}
+                        </FormControl>
+                        <Stack
+                            gap={1}
+                            sx={{mt: 2}}
+                            alignItems={'center'}
+
+                        >
+                            <Button
+                                type="submit"
+                                color={'success'}
+                                fullWidth
+                            >
+                                Sign in
+                            </Button>
+                            <Link
+                                color={'success'}
+                                href={'/register'}
+                            >Want to register?
+                            </Link>
+                        </Stack>
+                    </form>
+                </Card>
             </Stack>
-        </>
-        //   <SingleJobSitePage />
+        </Box>
     );
 }

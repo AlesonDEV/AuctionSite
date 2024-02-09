@@ -32,21 +32,21 @@ export function useGetRequest({
     },
     select: select,
   });
-  const refreshMutation = useMutation({
-    mutationFn: (variables: { refreshToken: string }) => {
-      return AuthApiManager.refresh(variables);
-    },
-    onError: (error, variables, context) => {
-      Cookies.remove(COOKIES.ACCESS);
-      Cookies.remove(COOKIES.REFRESH);
-      router.push('/logIn');
-    },
-    onSuccess: (data, variables, context) => {
-      Cookies.set(COOKIES.ACCESS, data.data['access_token']);
-      Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
-      request.refetch();
-    },
-  });
+  // const refreshMutation = useMutation({
+  //   mutationFn: (variables: { refreshToken: string }) => {
+  //     return AuthApiManager.refresh(variables);
+  //   },
+  //   onError: (error, variables, context) => {
+  //     Cookies.remove(COOKIES.ACCESS);
+  //     Cookies.remove(COOKIES.REFRESH);
+  //     router.push('/logIn');
+  //   },
+  //   onSuccess: (data, variables, context) => {
+  //     Cookies.set(COOKIES.ACCESS, data.data['access_token']);
+  //     Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
+  //     request.refetch();
+  //   },
+  // });
 
   React.useEffect(() => {
     // console.log(request.error);
@@ -54,12 +54,12 @@ export function useGetRequest({
       request.error instanceof AxiosError &&
       request.error.response?.status == 403
     ) {
-      const refreshToken = Cookies.get(COOKIES.REFRESH);
-      if (refreshToken) {
-        refreshMutation.mutate({ refreshToken: refreshToken });
-      } else {
-        router.push('/logIn');
-      }
+      // const refreshToken = Cookies.get(COOKIES.REFRESH);
+      // if (refreshToken) {
+      //   refreshMutation.mutate({ refreshToken: refreshToken });
+      // } else {
+        router.push('/login');
+      // }
     }
   }, [request.error]);
   return request;

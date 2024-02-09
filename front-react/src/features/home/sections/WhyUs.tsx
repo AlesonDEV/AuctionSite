@@ -30,21 +30,25 @@ export const WhyUs = () => {
                         // backgroundColor: '#ADC6BB'
                     }}
                 >
-                    <Stack
-                        direction={'row'}
-                        justifyContent={'center'}
-                        spacing={'2rem'}
-                        divider={<Divider/>}
-
-
+                    <Box
+                        // direction={'row'}
+                        // justifyContent={'center'}
+                        // spacing={'2rem'}
+                        // divider={<Divider/>}
+                        sx={{
+                            display: 'grid',
+                            gap: '2rem',
+                            gridTemplateColumns: '1fr 1fr 1fr',
+                            alignItems: 'start',
+                        }}
                     >
                         <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}
+                            // sx={{
+                            //     display: 'grid',
+                            //     flexDirection: 'column',
+                            //     justifyContent: 'center',
+                            //     alignItems: 'center',
+                            // }}
                         >
                             <Typography level='h3'>Genuine Listings</Typography>
                             <Box>We offer only authentic items and services that can be won at our auction.</Box>
@@ -52,16 +56,18 @@ export const WhyUs = () => {
 
                         <Box>
                             <Typography level='h3'>Real Payments</Typography>
-                            <Box>Your contributions translate into real support for charitable initiatives. Every payment makes
+                            <Box>Your contributions translate into real support for charitable initiatives. Every
+                                payment makes
                                 a positive impact on the world.</Box>
                         </Box>
 
                         <Box>
                             <Typography level='h3'>Social Impact</Typography>
-                            <Box> Your participation in our auction is an opportunity to join a community that acts for the
+                            <Box> Your participation in our auction is an opportunity to join a community that acts for
+                                the
                                 greater good.</Box>
                         </Box>
-                    </Stack>
+                    </Box>
                 </Sheet>
 
             </Stack>

@@ -2,11 +2,11 @@ export const URL = {
   //local
   // AUTH: 'http://192.168.1.49:8000/',
   //global
-  AUTH: 'http://194.187.154.198:9110',
+  SERVICE: 'https://auctionwebapi20240209224917.azurewebsites.net/',
   //local
   // INTEGRATION: 'http://192.168.1.49:8001/',
   // global
-  INTEGRATION: 'http://194.187.154.198:9120/',
+  // INTEGRATION: 'https://auctionwebapi20240209224917.azurewebsites.net/',
   //local
   // GENERATE: 'http://192.168.1.49:8002/',
 

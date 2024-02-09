@@ -31,11 +31,12 @@ export function usePostRequest<
     onError(error, variables, context) {
       console.log(variables);
       if (error instanceof AxiosError && error.response?.status === 403) {
-        const refreshToken = Cookies.get(COOKIES.REFRESH);
-        if (refreshToken) {
-          setLastData(variables);
-          refreshMutation.mutate({ refreshToken: refreshToken });
-        }
+        // const refreshToken = Cookies.get(COOKIES.REFRESH);
+        // if (refreshToken) {
+        //   setLastData(variables);
+        //   refreshMutation.mutate({ refreshToken: refreshToken });
+        // }
+        router.push('/login');
       }
       if (options.onError) {
         options?.onError(error, variables, context);
@@ -43,22 +44,22 @@ export function usePostRequest<
     },
   });
 
-  const refreshMutation = useMutation({
-    mutationFn: (variables: { refreshToken: string }) => {
-      return AuthApiManager.refresh(variables);
-    },
-
-    onError: (error, variables, context) => {
-      Cookies.remove(COOKIES.ACCESS);
-      Cookies.remove(COOKIES.REFRESH);
-      router.push('/logIn');
-    },
-    onSuccess: (data, variables, context) => {
-      Cookies.set(COOKIES.ACCESS, data.data['access_token']);
-      Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
-      mutation.mutate(lastData);
-    },
-  });
+  // const refreshMutation = useMutation({
+  //   mutationFn: (variables: { refreshToken: string }) => {
+  //     return AuthApiManager.refresh(variables);
+  //   },
+  //
+  //   onError: (error, variables, context) => {
+  //     Cookies.remove(COOKIES.ACCESS);
+  //     Cookies.remove(COOKIES.REFRESH);
+  //     router.push('/logIn');
+  //   },
+  //   onSuccess: (data, variables, context) => {
+  //     Cookies.set(COOKIES.ACCESS, data.data['access_token']);
+  //     Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
+  //     mutation.mutate(lastData);
+  //   },
+  // });
 
   return mutation;
 }
