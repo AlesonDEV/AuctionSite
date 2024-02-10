@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ozCAZuwmzzuKzKYrQOnt2UP/Ahgu7DPOZcOZHgcjm3A=",
+  "Source": "Auction.WebApi",
+  "BasePath": "_content/Auction.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,15 @@
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\bin\Release\net8.0\Auction.Infrastructure.deps.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\bin\Release\net8.0\Auction.Infrastructure.runtimeconfig.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\bin\Release\net8.0\Auction.Infrastructure.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\bin\Release\net8.0\Auction.Infrastructure.pdb
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\Auction.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\Auction.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\Auction.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\Auction.Infrastructure.AssemblyInfo.cs
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\Auction.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\Auction.Infrastructure.sourcelink.json
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\Auction.Infrastructure.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\refint\Auction.Infrastructure.dll
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\Auction.Infrastructure.pdb
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\Auction.Infrastructure.genruntimeconfig.cache
+C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.Infrastructure\obj\Release\net8.0\ref\Auction.Infrastructure.dll
