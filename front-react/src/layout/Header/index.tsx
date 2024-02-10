@@ -1,12 +1,16 @@
-'use client';
-
 import * as React from 'react';
 import Box from "@mui/joy/Box";
 import Stack from "@mui/joy/Stack";
 import {Avatar, Link, List, ListItem} from "@mui/joy";
 import Button from "@mui/joy/Button";
+// import AuthButton from "@/layout/Header/AuthButton";
+
+import dynamic from 'next/dynamic'
+
+const AuthButton = dynamic(() => import('@/layout/Header/AuthButton'), { ssr: false })
 
 export function Header() {
+    // if (typeof window === 'undefined') return <header></header>
     return (
         <header
             style={{
@@ -57,14 +61,7 @@ export function Header() {
 
                         >Auction Bids</Link>
 
-                        <Link href={'/login'}>
-                            <Button
-                                variant={'solid'}
-                                color={'success'}
-                            >
-                                Login
-                            </Button>
-                        </Link>
+                        <AuthButton />
                     </Stack>
                 </nav>
             </div>

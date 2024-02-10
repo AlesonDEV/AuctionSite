@@ -18,12 +18,12 @@ import {Card, FormHelperText, Snackbar} from '@mui/joy';
 import {AxiosError} from 'axios';
 import {useRouter} from 'next/navigation';
 import type {IRegisterParams} from "@/api/managers/AuthApiManager";
-
+import RegisterLogo from '@/../public/images/register_logo.png'
 import {Link} from '@mui/joy';
 import {useState} from "react";
 
 
-export const USER_CREDS = 'user_creds';
+// export const USER_CREDS = 'user_creds';
 
 export default function RegisterPage() {
     // const [creds, setCreds] = React.useState<IRegisterParams>();
@@ -54,7 +54,7 @@ export default function RegisterPage() {
         onSuccess: (data, variables, context) => {
             console.log(data)
 
-            Cookies.set(COOKIES.ACCESS, data.data['access_token']);
+            Cookies.set(COOKIES.ACCESS, data.data['token']);
             // Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
             // router.push('/');
             router.push('/');
@@ -141,110 +141,119 @@ export default function RegisterPage() {
                 justifyContent={'center'}
             >
                 <Card sx={{
-                    padding: '2rem'
+                    padding: '2rem',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    flexDirection: 'row',
                 }}>
-                    <Stack gap={1}>
-                        <Typography level="h3">Register</Typography>
-                    </Stack>
-
-                    <form onSubmit={handleSubmit(onSubmit)}>
-
-                        <Stack direction={'row'} spacing={2}>
-                            <FormControl error={errors.firstName != null}>
-                                <FormLabel>First Name</FormLabel>
-                                <Input
-                                    {...register('firstName', {required: true})}
-                                    type="text"
-                                />
-                                {errors.firstName?.message && (
-                                    <FormHelperText>{errors.firstName?.message}</FormHelperText>
-                                )}
-                            </FormControl>
-
-                            <FormControl error={errors.lastName != null}>
-                                <FormLabel>Last name</FormLabel>
-                                <Input
-                                    {...register('lastName', {required: true})}
-                                    type="text"
-                                />
-                                {errors.lastName?.message && (
-                                    <FormHelperText>{errors.lastName?.message}</FormHelperText>
-                                )}
-                            </FormControl>
+                    {/*<img src={RegisterLogo.src} alt=""/>*/}
+                    <Box>
+                        <Box sx={{
+                            backgroundImage: ''
+                        }}/>
+                        <Stack gap={1}>
+                            <Typography level="h3">Register</Typography>
                         </Stack>
 
-                        <Stack direction={'row'} spacing={2}>
-                            <FormControl error={errors.region != null}>
-                                <FormLabel>Region</FormLabel>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+
+                            <Stack direction={'row'} spacing={2}>
+                                <FormControl error={errors.firstName != null}>
+                                    <FormLabel>First Name</FormLabel>
+                                    <Input
+                                        {...register('firstName', {required: true})}
+                                        type="text"
+                                    />
+                                    {errors.firstName?.message && (
+                                        <FormHelperText>{errors.firstName?.message}</FormHelperText>
+                                    )}
+                                </FormControl>
+
+                                <FormControl error={errors.lastName != null}>
+                                    <FormLabel>Last name</FormLabel>
+                                    <Input
+                                        {...register('lastName', {required: true})}
+                                        type="text"
+                                    />
+                                    {errors.lastName?.message && (
+                                        <FormHelperText>{errors.lastName?.message}</FormHelperText>
+                                    )}
+                                </FormControl>
+                            </Stack>
+
+                            <Stack direction={'row'} spacing={2}>
+                                <FormControl error={errors.region != null}>
+                                    <FormLabel>Region</FormLabel>
+                                    <Input
+                                        {...register('region', {required: true})}
+                                        type="text"
+                                    />
+                                    {errors.region?.message && (
+                                        <FormHelperText>{errors.region?.message}</FormHelperText>
+                                    )}
+                                </FormControl>
+
+                                <FormControl error={errors.settlement != null}>
+                                    <FormLabel>Settlement</FormLabel>
+                                    <Input
+                                        {...register('settlement', {required: true})}
+                                        type="text"
+                                    />
+                                    {errors.settlement?.message && (
+                                        <FormHelperText>{errors.settlement?.message}</FormHelperText>
+                                    )}
+                                </FormControl>
+                            </Stack>
+
+                            <FormControl error={errors.email != null}>
+                                <FormLabel>Email</FormLabel>
                                 <Input
-                                    {...register('region', {required: true})}
-                                    type="text"
+                                    {...register('email', {required: true})}
+                                    type="email"
                                 />
-                                {errors.region?.message && (
-                                    <FormHelperText>{errors.region?.message}</FormHelperText>
+                                {errors.email?.message && (
+                                    <FormHelperText>{errors.email?.message}</FormHelperText>
                                 )}
                             </FormControl>
 
-                            <FormControl error={errors.settlement != null}>
-                                <FormLabel>Settlement</FormLabel>
+                            <FormControl error={errors.password != null}>
+                                <FormLabel>Password</FormLabel>
                                 <Input
-                                    {...register('settlement', {required: true})}
-                                    type="text"
+                                    type="password"
+                                    {...register('password', {required: true})}
                                 />
-                                {errors.settlement?.message && (
-                                    <FormHelperText>{errors.settlement?.message}</FormHelperText>
+                                {errors.password?.message && (
+                                    <FormHelperText>{errors.password?.message}</FormHelperText>
                                 )}
                             </FormControl>
-                        </Stack>
 
-                        <FormControl error={errors.email != null}>
-                            <FormLabel>Email</FormLabel>
-                            <Input
-                                {...register('email', {required: true})}
-                                type="email"
-                            />
-                            {errors.email?.message && (
-                                <FormHelperText>{errors.email?.message}</FormHelperText>
-                            )}
-                        </FormControl>
+                            <FormControl error={errors.confirmPassword != null}>
+                                <FormLabel>Confirm Password</FormLabel>
+                                <Input
+                                    type="password"
+                                    {...register('confirmPassword', {required: true})}
+                                />
+                                {errors.confirmPassword?.message && (
+                                    <FormHelperText>{errors.confirmPassword?.message}</FormHelperText>
+                                )}
+                            </FormControl>
 
-                        <FormControl error={errors.password != null}>
-                            <FormLabel>Password</FormLabel>
-                            <Input
-                                type="password"
-                                {...register('password', {required: true})}
-                            />
-                            {errors.password?.message && (
-                                <FormHelperText>{errors.password?.message}</FormHelperText>
-                            )}
-                        </FormControl>
-
-                        <FormControl error={errors.confirmPassword != null}>
-                            <FormLabel>Confirm Password</FormLabel>
-                            <Input
-                                type="password"
-                                {...register('confirmPassword', {required: true})}
-                            />
-                            {errors.confirmPassword?.message && (
-                                <FormHelperText>{errors.confirmPassword?.message}</FormHelperText>
-                            )}
-                        </FormControl>
-
-                        <Stack gap={2} sx={{mt: 2}} alignItems={'center'}>
-                            <Button
-                                type="submit"
-                                color={'success'}
-                                fullWidth
-                            >
-                                Sign in
-                            </Button>
-                            <Link
-                                color={'success'}
-                                href={'/register'}
-                            >Have an account?
-                            </Link>
-                        </Stack>
-                    </form>
+                            <Stack gap={2} sx={{mt: 2}} alignItems={'center'}>
+                                <Button
+                                    type="submit"
+                                    color={'success'}
+                                    fullWidth
+                                >
+                                    Sign in
+                                </Button>
+                                <Link
+                                    color={'success'}
+                                    href={'/register'}
+                                >Have an account?
+                                </Link>
+                            </Stack>
+                        </form>
+                    </Box>
                 </Card>
 
             </Stack>
