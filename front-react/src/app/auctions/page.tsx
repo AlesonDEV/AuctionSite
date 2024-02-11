@@ -1,9 +1,9 @@
 import React from 'react';
 import Bulk from '@/features/auctions/pages/Bulk'
-const MyComponent = () => {
+const page = () => {
     return (
         <Bulk />
     );
 };
 
-export default MyComponent;
+export default page;

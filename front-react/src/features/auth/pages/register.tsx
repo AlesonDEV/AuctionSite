@@ -36,6 +36,7 @@ export default function RegisterPage() {
         watch,
         setError,
         formState: {errors},
+        getValues
     } = useForm<IRegisterParams>({
         defaultValues: {
             firstName: '',
@@ -55,6 +56,8 @@ export default function RegisterPage() {
             console.log(data)
 
             Cookies.set(COOKIES.ACCESS, data.data['token']);
+            Cookies.set(COOKIES.EMAIL, getValues('email'));
+
             // Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
             // router.push('/');
             router.push('/');
@@ -86,7 +89,7 @@ export default function RegisterPage() {
                     break;
             }
             Cookies.remove(COOKIES.ACCESS);
-            Cookies.remove(COOKIES.REFRESH);
+            // Cookies.remove(COOKIES.REFRESH);
         },
     });
 

@@ -15,7 +15,7 @@ import {usePostRequest} from '@/hooks/usePostRequest';
 import AuthApiManager from '@/api/managers/AuthApiManager';
 import {COOKIES} from '@/api/apiConsts';
 import {Card, FormHelperText} from '@mui/joy';
-import {AxiosError} from 'axios';
+import type {AxiosError} from 'axios';
 import {useRouter} from 'next/navigation';
 
 
@@ -39,6 +39,7 @@ export default function LoginPage() {
         watch,
         setError,
         formState: {errors},
+        getValues,
     } = useForm<Inputs>();
 
     const logInRequest = usePostRequest({
@@ -48,6 +49,8 @@ export default function LoginPage() {
         },
         onSuccess: (data, variables, context) => {
             Cookies.set(COOKIES.ACCESS, data.data['access_token']);
+            Cookies.set(COOKIES.EMAIL, getValues('email'));
+
             // Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
             // router.push('/');
             router.push('/');

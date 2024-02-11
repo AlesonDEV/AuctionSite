@@ -49,7 +49,8 @@ export default function RootLayout(
                             padding: '0',
                             width: '100%',
                             // height: '100dvh',
-                            // flex: '1 0 auto',
+                            flex: '1',
+
                             background: 'rgb(227, 251, 227)',
                         }}
                     >

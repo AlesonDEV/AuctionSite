@@ -6,7 +6,7 @@ import AuthApiManager from '@/api/managers/AuthApiManager';
 import { COOKIES } from '@/api/apiConsts';
 import { AxiosError } from 'axios';
 
-export function useGetRequest({
+export function useGetRequest<T>({
   queryKey,
   queryFn,
   params,
@@ -23,7 +23,7 @@ export function useGetRequest({
 }) {
   const router = useRouter();
 
-  const request = useQuery({
+  const request = useQuery<T>({
     ...props,
     enabled: enabled,
     queryKey: [queryKey, params],

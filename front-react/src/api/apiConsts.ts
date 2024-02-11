@@ -16,4 +16,5 @@ export const URL = {
 export const COOKIES = {
   ACCESS: 'access_token',
   REFRESH: 'refresh_token',
+  EMAIL: 'email',
 };
