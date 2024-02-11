@@ -20,13 +20,13 @@ namespace Auctiion.DataAccess.Services
 
         public async Task<bool> CreatePersonAsync(Person person)
         {
-            await _context.Persons.AddAsync(person);
+            await _context.AddAsync(person);
             return await SaveAsync();
         }
 
         public async Task<bool> SaveAsync()
         {
-            var saved = await _context.SaveChangesAsync();
+            var saved =  await _context.SaveChangesAsync();
             return saved > 0 ? true : false;
         }
     }

@@ -1,5 +1,6 @@
 
 using Auctiion.DataAccess.Data;
+using Auctiion.DataAccess.SeedData;
 using Auctiion.DataAccess.Services;
 using Auction.Domain.Abstractions;
 using Auction.Domain.Models;
@@ -32,8 +33,14 @@ namespace Auction.WebApi
             builder.Services.AddScoped<IContacTypeRepository, ContactTypeRepository>();
             builder.Services.AddScoped<IPersonRepository, PersonRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IAuctionDetailsRepository, AuctionDetailsRepository>();
+            builder.Services.AddScoped<IAuctionUserRepository, AuctionUserRepositpry>();
+            builder.Services.AddScoped<IItemDetailsRepository, ItemDetailsRepository>();
             builder.Services.AddScoped<IRegionRepository, RegionRepository>();
-            
+            builder.Services.AddScoped<IBidRepository, BidRepository>();
+            builder.Services.AddScoped<IBidUserRepository, BidUserRepository>();
+            builder.Services.AddScoped<IBidAuctionRepository, BidAuctionRepository>();
+
             //MiddleWare for autherization and authentication
             //Add Identity & Jwt Authentication
             //Identity
@@ -84,8 +91,34 @@ namespace Auction.WebApi
 
             //Enabling migrations
             builder.Services.BuildServiceProvider().GetService<DataContext>().Database.Migrate();
-            
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("policyReact", policyBuilder =>
+                {
+                    policyBuilder.WithOrigins("https://auctionwebapi20240209224917.azurewebsites.net");
+                    policyBuilder.AllowAnyHeader();
+                    policyBuilder.AllowAnyMethod();
+                    policyBuilder.AllowAnyOrigin();
+                });
+            });
+
             var app = builder.Build();
+
+            //SeedingData
+            if (args.Length == 1 && args[0].ToLower() == "seeddata")
+                SeedData(app);
+
+            void SeedData(IHost app)
+            {
+                var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+                using (var scope = scopedFactory.CreateScope())
+                {
+                    var service = scope.ServiceProvider.GetService<SeedAllEntities>();
+                    service.SeedDataContext();
+                }
+            }
 
             // Configure the HTTP request pipeline.
             app.UseSwagger();
@@ -97,6 +130,8 @@ namespace Auction.WebApi
             app.UseAuthorization();
 
             app.MapControllers();
+
+            app.UseCors("policyReact");
 
             app.Run();
         }

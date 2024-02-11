@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H8TNH1Ly4ROOBU9brIpjHBACKXVOZXHdRBFXXtBxL0K0U5h6WyDttlAv+Wv18aOhkrw8M5goi8ib/3FcyQRO7w==",
+  "dgSpecHash": "WEpXMeSXKDRfqITOK3CA9zfHzgmof36Vj5lD2iMfhZ04vxSsBTwhbiz2TE2z3iPO3HD+Xc15LOAZaR2YwR2b8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj",
+  "projectFilePath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jorda\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\jorda\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

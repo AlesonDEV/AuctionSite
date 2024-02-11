@@ -1,8 +1,10 @@
-﻿using Auction.Domain.Abstractions;
+﻿using Auctiion.DataAccess.Data;
+using Auction.Domain.Abstractions;
 using Auction.Domain.AutherizationModels;
 using Auction.Domain.Dto;
 using Auction.Domain.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -26,6 +28,7 @@ namespace Auctiion.DataAccess.Services
         private readonly IContacTypeRepository _contacTypeRepository;
         private readonly IPersonContactRepository _personContactRepository;
         private readonly ICustomerRepository _customerRepository;
+        private readonly DataContext _context;
 
         public UserRepository(UserManager<IdentityUser> userManager,
                               RoleManager<IdentityRole> roleManager,
@@ -34,7 +37,8 @@ namespace Auctiion.DataAccess.Services
                               IRegionRepository regionRepository,
                               IContacTypeRepository contacTypeRepository,
                               IPersonContactRepository personContactRepository,
-                              ICustomerRepository customerRepository)
+                              ICustomerRepository customerRepository,
+                              DataContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -44,8 +48,9 @@ namespace Auctiion.DataAccess.Services
             _contacTypeRepository = contacTypeRepository;
             _personContactRepository = personContactRepository;
             _customerRepository = customerRepository;
+            _context = context;
         }
-       
+
         public async Task<SreviceResponse.LoginResponse> LoginAccount(LoginDto loginDto)
         {
             if (loginDto == null)
@@ -62,38 +67,38 @@ namespace Auctiion.DataAccess.Services
             var getUserRole = await _userManager.GetRolesAsync(getUser);
             var userSession = new UserSession(getUser.Id, getUser.Email, getUserRole.First());
             string token = GenerateToken(userSession);
-            return new LoginResponse(true, 200, token!, "Login completed");
+            return new LoginResponse(true, 201, token!, "Login completed");
         }
 
         //Registration of account
         public async Task<SreviceResponse.GeneralResponse> RegisterAccount(RegisterDto registerDto)
         {
-            if (registerDto is null) return new GeneralResponse(false, 400, "Model is empty");
+            if (registerDto is null) return new GeneralResponse(false, 400, null!, "Model is empty");
             var newUser = new IdentityUser()
             {
                 Email = registerDto.Email,
                 PasswordHash = registerDto.Password,
-                UserName = registerDto.FirstName + ' ' + registerDto.LastName,
+                UserName = registerDto.Email,
             };
             var user = await _userManager.FindByEmailAsync(newUser.Email);
-            if (user is not null) return new GeneralResponse(false, 409, "User registered already");
+            if (user is not null) return new GeneralResponse(false, 409, null!, "User registered already");
 
             var createUser = await _userManager.CreateAsync(newUser!, registerDto.Password);
-            if (!createUser.Succeeded) return new GeneralResponse(false, 400, "The password must contain one letter A-z, a special character, numbers");
+            if (!createUser.Succeeded) return new GeneralResponse(false, 422, null!, "The password must contain 8 symbols: letter A-z, a special character, numbers");
 
             //Creating and adding info to record to table Persons
             var person = new Person
             {
                 FirstName = registerDto.FirstName,
                 LastName = registerDto.LastName,
-                RegionId = _regionRepository.GetRegionIdByName(registerDto.Region),
+                Region = _regionRepository.GetRegionIdByName(registerDto.Region),
                 Settlement = registerDto.Settlement,
             };
 
             //Creating and adding info to record to table PersonContacts 
             var personContact = new PersonContact
             {
-                ContactTypeId = _contacTypeRepository.GetIdByNameOfContactType("Email"),
+                ContactType = _contacTypeRepository.GetIdByNameOfContactType("Email"),
                 Person = person,
                 ContactValue = registerDto.Email,
             };
@@ -117,7 +122,12 @@ namespace Auctiion.DataAccess.Services
             {
                 await _roleManager.CreateAsync(new IdentityRole() { Name = "Admin" });
                 await _userManager.AddToRoleAsync(newUser, "Admin");
-                return new GeneralResponse(true, 200, "Account Created");
+                var response = await LoginAccount(new LoginDto
+                {
+                    Email = registerDto.Email,
+                    Password = registerDto.Password,
+                });
+                return new GeneralResponse(true, 201, response.Token, "Account Created");
             }
             else
             {
@@ -127,9 +137,20 @@ namespace Auctiion.DataAccess.Services
 
                 await _userManager.AddToRoleAsync(newUser, "User");
 
+                var response = await LoginAccount(new LoginDto
+                {
+                    Email = registerDto.Email,
+                    Password = registerDto.Password,
+                });
                 //Add general information about person
-                return new GeneralResponse(true, 200, "Account Created");
+                return new GeneralResponse(true, 201, response.Token, "Account Created");
             }
+        }
+
+        public async Task<bool> IsRegistred(string email)
+        {
+            var isExists = await _context.Users.AnyAsync(u => u.Email == email);
+            return isExists;
         }
 
         //Generate JWT token with the key from configuration

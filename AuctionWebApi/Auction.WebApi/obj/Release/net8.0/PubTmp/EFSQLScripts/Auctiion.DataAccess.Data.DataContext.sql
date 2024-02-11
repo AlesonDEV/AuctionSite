@@ -13,7 +13,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE TABLE [AspNetRoles] (
@@ -28,7 +28,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE TABLE [AspNetUsers] (
@@ -54,86 +54,86 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [bid] (
+    CREATE TABLE [Bids] (
         [id] int NOT NULL IDENTITY,
         [bid_amount] decimal(16,2) NOT NULL,
         [bid_time] datetime NOT NULL,
-        CONSTRAINT [PK_bid] PRIMARY KEY ([id])
+        CONSTRAINT [PK_Bids] PRIMARY KEY ([id])
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [category] (
+    CREATE TABLE [Categories] (
         [id] int NOT NULL IDENTITY,
         [name] varchar(255) NOT NULL,
-        CONSTRAINT [PK_category] PRIMARY KEY ([id])
+        CONSTRAINT [PK_Categories] PRIMARY KEY ([id])
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [condition] (
+    CREATE TABLE [Conditions] (
         [id] int NOT NULL IDENTITY,
         [name] varchar(255) NOT NULL,
-        CONSTRAINT [PK_condition] PRIMARY KEY ([id])
+        CONSTRAINT [PK_Conditions] PRIMARY KEY ([id])
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [contact_type] (
+    CREATE TABLE [Contact_Type] (
         [id] int NOT NULL IDENTITY,
         [name] varchar(100) NOT NULL,
-        CONSTRAINT [PK_contact_type] PRIMARY KEY ([id])
+        CONSTRAINT [PK_Contact_Type] PRIMARY KEY ([id])
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [region] (
+    CREATE TABLE [Regions] (
         [id] int NOT NULL IDENTITY,
         [name] varchar(100) NOT NULL,
-        CONSTRAINT [PK_region] PRIMARY KEY ([id])
+        CONSTRAINT [PK_Regions] PRIMARY KEY ([id])
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [status] (
+    CREATE TABLE [Statuses] (
         [id] int NOT NULL IDENTITY,
         [name] varchar(255) NOT NULL,
-        CONSTRAINT [PK_status] PRIMARY KEY ([id])
+        CONSTRAINT [PK_Statuses] PRIMARY KEY ([id])
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE TABLE [AspNetRoleClaims] (
@@ -149,7 +149,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE TABLE [AspNetUserClaims] (
@@ -165,7 +165,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE TABLE [AspNetUserLogins] (
@@ -181,7 +181,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE TABLE [AspNetUserRoles] (
@@ -196,7 +196,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE TABLE [AspNetUserTokens] (
@@ -212,93 +212,92 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [person] (
+    CREATE TABLE [Persons] (
         [id] int NOT NULL IDENTITY,
         [first_name] varchar(255) NOT NULL,
         [last_name] varchar(255) NOT NULL,
         [region_id] int NOT NULL,
         [settlement] varchar(255) NOT NULL,
-        [hashed_password] varchar(255) NOT NULL,
-        [hashed_reserved_password] varchar(255) NOT NULL,
-        CONSTRAINT [PK_person] PRIMARY KEY ([id]),
-        CONSTRAINT [FK_person_region_region_id] FOREIGN KEY ([region_id]) REFERENCES [region] ([id]) ON DELETE CASCADE
+        CONSTRAINT [PK_Persons] PRIMARY KEY ([id]),
+        CONSTRAINT [FK_Persons_Regions_region_id] FOREIGN KEY ([region_id]) REFERENCES [Regions] ([id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [auction] (
+    CREATE TABLE [Auctions] (
         [id] int NOT NULL IDENTITY,
         [title] varchar(255) NOT NULL,
         [category_id] int NOT NULL,
         [status_id] int NOT NULL,
-        CONSTRAINT [PK_auction] PRIMARY KEY ([id]),
-        CONSTRAINT [FK_auction_category_category_id] FOREIGN KEY ([category_id]) REFERENCES [category] ([id]) ON DELETE CASCADE,
-        CONSTRAINT [FK_auction_status_status_id] FOREIGN KEY ([status_id]) REFERENCES [status] ([id]) ON DELETE CASCADE
+        CONSTRAINT [PK_Auctions] PRIMARY KEY ([id]),
+        CONSTRAINT [FK_Auctions_Categories_category_id] FOREIGN KEY ([category_id]) REFERENCES [Categories] ([id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_Auctions_Statuses_status_id] FOREIGN KEY ([status_id]) REFERENCES [Statuses] ([id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [customer] (
+    CREATE TABLE [Customers] (
         [person_id] int NOT NULL,
-        [card_number] varchar(25) NOT NULL,
         [count_of_bids] int NOT NULL,
-        CONSTRAINT [PK_customer] PRIMARY KEY ([person_id]),
-        CONSTRAINT [FK_customer_person_person_id] FOREIGN KEY ([person_id]) REFERENCES [person] ([id]) ON DELETE CASCADE
+        [user_id] nvarchar(450) NULL,
+        CONSTRAINT [PK_Customers] PRIMARY KEY ([person_id]),
+        CONSTRAINT [FK_Customers_AspNetUsers_user_id] FOREIGN KEY ([user_id]) REFERENCES [AspNetUsers] ([Id]),
+        CONSTRAINT [FK_Customers_Persons_person_id] FOREIGN KEY ([person_id]) REFERENCES [Persons] ([id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [person_contact] (
+    CREATE TABLE [Person_Contact] (
         [id] int NOT NULL IDENTITY,
         [person_id] int NOT NULL,
         [contact_type_id] int NOT NULL,
         [contact_value] varchar(100) NOT NULL,
-        CONSTRAINT [PK_person_contact] PRIMARY KEY ([id]),
-        CONSTRAINT [FK_person_contact_contact_type_contact_type_id] FOREIGN KEY ([contact_type_id]) REFERENCES [contact_type] ([id]) ON DELETE CASCADE,
-        CONSTRAINT [FK_person_contact_person_person_id] FOREIGN KEY ([person_id]) REFERENCES [person] ([id]) ON DELETE CASCADE
+        CONSTRAINT [PK_Person_Contact] PRIMARY KEY ([id]),
+        CONSTRAINT [FK_Person_Contact_Contact_Type_contact_type_id] FOREIGN KEY ([contact_type_id]) REFERENCES [Contact_Type] ([id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_Person_Contact_Persons_person_id] FOREIGN KEY ([person_id]) REFERENCES [Persons] ([id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [bid_auction] (
+    CREATE TABLE [Bid_Auction] (
         [bid_id] int NOT NULL,
         [auction_id] int NOT NULL,
-        CONSTRAINT [PK_bid_auction] PRIMARY KEY ([bid_id], [auction_id]),
-        CONSTRAINT [FK_bid_auction_auction_auction_id] FOREIGN KEY ([auction_id]) REFERENCES [auction] ([id]) ON DELETE CASCADE,
-        CONSTRAINT [FK_bid_auction_bid_bid_id] FOREIGN KEY ([bid_id]) REFERENCES [bid] ([id]) ON DELETE CASCADE
+        CONSTRAINT [PK_Bid_Auction] PRIMARY KEY ([bid_id], [auction_id]),
+        CONSTRAINT [FK_Bid_Auction_Auctions_auction_id] FOREIGN KEY ([auction_id]) REFERENCES [Auctions] ([id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_Bid_Auction_Bids_bid_id] FOREIGN KEY ([bid_id]) REFERENCES [Bids] ([id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [auction_details] (
+    CREATE TABLE [Auction_Details] (
         [auction_id] int NOT NULL,
         [current_buyer_id] int NOT NULL,
         [description] varchar(2000) NOT NULL,
@@ -306,77 +305,77 @@ BEGIN
         [end_time] datetime NOT NULL,
         [starting_price] decimal(16,2) NOT NULL,
         [current_price] decimal(16,2) NOT NULL,
-        CONSTRAINT [PK_auction_details] PRIMARY KEY ([auction_id]),
-        CONSTRAINT [FK_auction_details_auction_auction_id] FOREIGN KEY ([auction_id]) REFERENCES [auction] ([id]) ON DELETE CASCADE,
-        CONSTRAINT [FK_auction_details_customer_current_buyer_id] FOREIGN KEY ([current_buyer_id]) REFERENCES [customer] ([person_id]) ON DELETE CASCADE
+        CONSTRAINT [PK_Auction_Details] PRIMARY KEY ([auction_id]),
+        CONSTRAINT [FK_Auction_Details_Auctions_auction_id] FOREIGN KEY ([auction_id]) REFERENCES [Auctions] ([id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_Auction_Details_Customers_current_buyer_id] FOREIGN KEY ([current_buyer_id]) REFERENCES [Customers] ([person_id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [auction_user] (
+    CREATE TABLE [Auction_User] (
         [auction_id] int NOT NULL,
         [user_id] int NOT NULL,
-        CONSTRAINT [PK_auction_user] PRIMARY KEY ([auction_id], [user_id]),
-        CONSTRAINT [FK_auction_user_auction_auction_id] FOREIGN KEY ([auction_id]) REFERENCES [auction] ([id]) ON DELETE CASCADE,
-        CONSTRAINT [FK_auction_user_customer_user_id] FOREIGN KEY ([user_id]) REFERENCES [customer] ([person_id]) ON DELETE CASCADE
+        CONSTRAINT [PK_Auction_User] PRIMARY KEY ([auction_id], [user_id]),
+        CONSTRAINT [FK_Auction_User_Auctions_auction_id] FOREIGN KEY ([auction_id]) REFERENCES [Auctions] ([id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_Auction_User_Customers_user_id] FOREIGN KEY ([user_id]) REFERENCES [Customers] ([person_id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [bid_user] (
+    CREATE TABLE [Bid_User] (
         [user_id] int NOT NULL,
         [bid_id] int NOT NULL,
-        CONSTRAINT [PK_bid_user] PRIMARY KEY ([bid_id], [user_id]),
-        CONSTRAINT [FK_bid_user_bid_bid_id] FOREIGN KEY ([bid_id]) REFERENCES [bid] ([id]) ON DELETE CASCADE,
-        CONSTRAINT [FK_bid_user_customer_user_id] FOREIGN KEY ([user_id]) REFERENCES [customer] ([person_id]) ON DELETE CASCADE
+        CONSTRAINT [PK_Bid_User] PRIMARY KEY ([bid_id], [user_id]),
+        CONSTRAINT [FK_Bid_User_Bids_bid_id] FOREIGN KEY ([bid_id]) REFERENCES [Bids] ([id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_Bid_User_Customers_user_id] FOREIGN KEY ([user_id]) REFERENCES [Customers] ([person_id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [item_details] (
+    CREATE TABLE [Item_Details] (
         [auction_details_id] int NOT NULL,
         [condition_id] int NOT NULL,
-        CONSTRAINT [PK_item_details] PRIMARY KEY ([auction_details_id]),
-        CONSTRAINT [FK_item_details_auction_details_auction_details_id] FOREIGN KEY ([auction_details_id]) REFERENCES [auction_details] ([auction_id]) ON DELETE CASCADE,
-        CONSTRAINT [FK_item_details_condition_condition_id] FOREIGN KEY ([condition_id]) REFERENCES [condition] ([id]) ON DELETE CASCADE
+        CONSTRAINT [PK_Item_Details] PRIMARY KEY ([auction_details_id]),
+        CONSTRAINT [FK_Item_Details_Auction_Details_auction_details_id] FOREIGN KEY ([auction_details_id]) REFERENCES [Auction_Details] ([auction_id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_Item_Details_Conditions_condition_id] FOREIGN KEY ([condition_id]) REFERENCES [Conditions] ([id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE TABLE [photo] (
+    CREATE TABLE [Photos] (
         [Id] int NOT NULL IDENTITY,
         [file_path] varchar(255) NOT NULL,
         [binary_data] varchar(500) NOT NULL,
         [item_id] int NOT NULL,
-        CONSTRAINT [PK_photo] PRIMARY KEY ([Id]),
-        CONSTRAINT [FK_photo_item_details_item_id] FOREIGN KEY ([item_id]) REFERENCES [item_details] ([auction_details_id]) ON DELETE CASCADE
+        CONSTRAINT [PK_Photos] PRIMARY KEY ([Id]),
+        CONSTRAINT [FK_Photos_Item_Details_item_id] FOREIGN KEY ([item_id]) REFERENCES [Item_Details] ([auction_details_id]) ON DELETE CASCADE
     );
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
@@ -385,7 +384,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     EXEC(N'CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL');
@@ -394,7 +393,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
@@ -403,7 +402,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
@@ -412,7 +411,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
@@ -421,7 +420,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
@@ -430,7 +429,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     EXEC(N'CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL');
@@ -439,110 +438,168 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_auction_category_id] ON [auction] ([category_id]);
+    CREATE INDEX [IX_Auction_Details_current_buyer_id] ON [Auction_Details] ([current_buyer_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_auction_status_id] ON [auction] ([status_id]);
+    CREATE INDEX [IX_Auction_User_user_id] ON [Auction_User] ([user_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_auction_details_current_buyer_id] ON [auction_details] ([current_buyer_id]);
+    CREATE INDEX [IX_Auctions_category_id] ON [Auctions] ([category_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_auction_user_user_id] ON [auction_user] ([user_id]);
+    CREATE INDEX [IX_Auctions_status_id] ON [Auctions] ([status_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_bid_auction_auction_id] ON [bid_auction] ([auction_id]);
+    CREATE INDEX [IX_Bid_Auction_auction_id] ON [Bid_Auction] ([auction_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_bid_user_user_id] ON [bid_user] ([user_id]);
+    CREATE INDEX [IX_Bid_User_user_id] ON [Bid_User] ([user_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_item_details_condition_id] ON [item_details] ([condition_id]);
+    CREATE INDEX [IX_Customers_user_id] ON [Customers] ([user_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_person_region_id] ON [person] ([region_id]);
+    CREATE INDEX [IX_Item_Details_condition_id] ON [Item_Details] ([condition_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_person_contact_contact_type_id] ON [person_contact] ([contact_type_id]);
+    CREATE INDEX [IX_Person_Contact_contact_type_id] ON [Person_Contact] ([contact_type_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_person_contact_person_id] ON [person_contact] ([person_id]);
+    CREATE INDEX [IX_Person_Contact_person_id] ON [Person_Contact] ([person_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
-    CREATE INDEX [IX_photo_item_id] ON [photo] ([item_id]);
+    CREATE INDEX [IX_Persons_region_id] ON [Persons] ([region_id]);
 END;
 GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240208230714_Init'
+    WHERE [MigrationId] = N'20240209204057_Init'
+)
+BEGIN
+    CREATE INDEX [IX_Photos_item_id] ON [Photos] ([item_id]);
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240209204057_Init'
 )
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20240208230714_Init', N'8.0.1');
+    VALUES (N'20240209204057_Init', N'8.0.1');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240210163843_Second'
+)
+BEGIN
+    ALTER TABLE [Auction_Details] DROP CONSTRAINT [FK_Auction_Details_Customers_current_buyer_id];
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240210163843_Second'
+)
+BEGIN
+    DECLARE @var0 sysname;
+    SELECT @var0 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Auction_Details]') AND [c].[name] = N'current_buyer_id');
+    IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Auction_Details] DROP CONSTRAINT [' + @var0 + '];');
+    ALTER TABLE [Auction_Details] ALTER COLUMN [current_buyer_id] int NULL;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240210163843_Second'
+)
+BEGIN
+    ALTER TABLE [Auction_Details] ADD CONSTRAINT [FK_Auction_Details_Customers_current_buyer_id] FOREIGN KEY ([current_buyer_id]) REFERENCES [Customers] ([person_id]);
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240210163843_Second'
+)
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240210163843_Second', N'8.0.1');
 END;
 GO
 

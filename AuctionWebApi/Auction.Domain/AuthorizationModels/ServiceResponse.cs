@@ -9,7 +9,7 @@ namespace Auction.Domain.AutherizationModels
     //Responsec for Api (register, login)
     public class SreviceResponse
     {
-        public record class GeneralResponse(bool Flag, int Code, string Message);
+        public record class GeneralResponse(bool Flag, int Code, string Token, string Message);
 
         public record class LoginResponse(bool Flag, int Code, string Token, string Message);
     }

@@ -3,6 +3,7 @@ using Auction.Domain.Abstractions;
 using Auction.Domain.Dto;
 using Auction.Domain.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -24,9 +25,27 @@ namespace Auctiion.DataAccess.Services
             _context = context;
         }
 
+        public async Task<IdentityUser> GetUserIdByEmail(string email)
+        {
+            var user = await _context.Users
+                                   .Where(e => e.Email == email)
+                                   .FirstOrDefaultAsync();
+
+            return user;
+        }
+
+        public async Task<Customer> GetCustomerByEmail(string email)
+        {
+            var user = await GetUserIdByEmail(email);
+            var customer = await _context.Customers
+                                      .Where(u => u.UserId == user.Id)
+                                      .FirstOrDefaultAsync();
+            return customer;
+        }
+
         public async Task<bool> CreateCustomerAsync(Customer customer)
         {
-            await _context.Customers.AddAsync(customer);
+            await _context.AddAsync(customer);
             return await SaveAsync();
         }
 

@@ -1,5 +1,6 @@
 ﻿using Auction.Domain.AutherizationModels;
 using Auction.Domain.Dto;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace Auction.Domain.Abstractions
         Task<GeneralResponse> RegisterAccount(RegisterDto registerDto);
 
         Task<LoginResponse> LoginAccount(LoginDto loginDTO);
+
+        Task<bool> IsRegistred(string email);
     }
 }

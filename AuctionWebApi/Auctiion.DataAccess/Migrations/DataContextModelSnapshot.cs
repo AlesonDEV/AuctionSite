@@ -59,7 +59,7 @@ namespace Auctiion.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasColumnName("auction_id");
 
-                    b.Property<int>("CurrentBuyerId")
+                    b.Property<int?>("CurrentBuyerId")
                         .HasColumnType("int")
                         .HasColumnName("current_buyer_id");
 
@@ -619,9 +619,7 @@ namespace Auctiion.DataAccess.Migrations
 
                     b.HasOne("Auction.Domain.Models.Customer", "Customer")
                         .WithMany("AuctionDetails")
-                        .HasForeignKey("CurrentBuyerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CurrentBuyerId");
 
                     b.Navigation("Auction");
 

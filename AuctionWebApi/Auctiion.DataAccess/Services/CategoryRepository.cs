@@ -1,6 +1,7 @@
 ﻿using Auctiion.DataAccess.Data;
 using Auction.Domain.Abstractions;
 using Auction.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,9 @@ namespace Auctiion.DataAccess.Services
             throw new NotImplementedException();
         }
 
-        public ICollection<Category> GetAllCategories()
+        public async Task<ICollection<Category>> GetAllCategories()
         {
-            throw new NotImplementedException();
+            return await _context.Categories.ToListAsync();
         }
 
         public ICollection<Category> GetCategories()

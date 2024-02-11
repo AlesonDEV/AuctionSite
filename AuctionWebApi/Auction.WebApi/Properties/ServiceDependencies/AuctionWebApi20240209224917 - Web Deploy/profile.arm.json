@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "AuctionWebApiAleson",
+      "defaultValue": "AuctionWebApi20240209224917",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }

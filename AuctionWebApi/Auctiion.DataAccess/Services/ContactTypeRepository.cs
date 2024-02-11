@@ -1,5 +1,6 @@
 ﻿using Auctiion.DataAccess.Data;
 using Auction.Domain.Abstractions;
+using Auction.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,10 @@ namespace Auctiion.DataAccess.Services
             _context = context;
         }
 
-        public int GetIdByNameOfContactType(string nameOfContactType)
+        public ContactType GetIdByNameOfContactType(string nameOfContactType)
         {
             var contactType = _context.ContactTypes.Where(n => n.Name == nameOfContactType).FirstOrDefault();
-            return contactType != null ? contactType.Id : -1;
+            return contactType;
         }
     }
 }
