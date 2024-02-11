@@ -21,7 +21,7 @@ const Bulk = async () => {
                 <List>
                     {
                         AuctionData.data.map(auction => (
-                            <React.Fragment>
+                            <React.Fragment key={auction.auctionId}>
                                 <AuctionListItem auction={auction}/>
                                 <Divider
                                     sx={{

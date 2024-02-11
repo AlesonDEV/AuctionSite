@@ -28,6 +28,11 @@ export interface IAuctionPost {
     conditionId: number
 }
 
+export interface ICategory {
+    id: number
+    name: string
+}
+
 export default class AuctionsApiManager {
     static async getAuctions({count}: {count?: number}){
         return await axiosServiceConfig.get<IAuction[]>('/api/Auction/previewInfo/'+ String(count ? count : 10))
@@ -55,9 +60,17 @@ export default class AuctionsApiManager {
         )
     }
 
-    // static async getRandomImage() {
-    //     return await axios.get('https://api.api-ninjas.com/v1/randomimage?category=technology')
-    // }
+    static async getUserAuctions({ email }: {email: string}) {
+        return await axiosServiceConfig.get(
+            '/api/Auction/previewInfoByUser/'+email
+        )
+    }
+
+    static async getCategories() {
+        return await axiosServiceConfig.get(
+            '/api/Category'
+        )
+    }
 }
 
 // export const randomImageUrl = 'https://random.imagecdn.app/500/150'
