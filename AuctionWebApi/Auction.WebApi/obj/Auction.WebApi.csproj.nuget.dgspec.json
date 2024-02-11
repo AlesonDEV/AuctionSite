@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.WebApi\\Auction.WebApi.csproj": {}
+    "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.WebApi\\Auction.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj": {
+    "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj",
         "projectName": "Auctiion.DataAccess",
-        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj",
+        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj",
         "packagesPath": "C:\\Users\\jorda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auctiion.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auctiion.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj": {
-                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj"
+              "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj": {
+                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj"
               }
             }
           }
@@ -128,14 +128,14 @@
         }
       }
     },
-    "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj": {
+    "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj",
         "projectName": "Auction.Domain",
-        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj",
+        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj",
         "packagesPath": "C:\\Users\\jorda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\obj\\",
+        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -248,14 +248,14 @@
         }
       }
     },
-    "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj": {
+    "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
         "projectName": "Auction.Infrastructure",
-        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\jorda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -354,14 +354,14 @@
         }
       }
     },
-    "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj": {
+    "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj",
+        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj",
         "projectName": "Auction.Services",
-        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj",
+        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj",
         "packagesPath": "C:\\Users\\jorda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Services\\obj\\",
+        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -383,11 +383,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj"
+              "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj"
               },
-              "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj": {
-                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj"
+              "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj": {
+                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj"
               }
             }
           }
@@ -481,14 +481,14 @@
         }
       }
     },
-    "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.WebApi\\Auction.WebApi.csproj": {
+    "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.WebApi\\Auction.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.WebApi\\Auction.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.WebApi\\Auction.WebApi.csproj",
         "projectName": "Auction.WebApi",
-        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.WebApi\\Auction.WebApi.csproj",
+        "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.WebApi\\Auction.WebApi.csproj",
         "packagesPath": "C:\\Users\\jorda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.WebApi\\obj\\",
+        "outputPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -510,17 +510,17 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj"
+              "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auctiion.DataAccess\\Auctiion.DataAccess.csproj"
               },
-              "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj": {
-                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj"
+              "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj": {
+                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Domain\\Auction.Domain.csproj"
               },
-              "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj"
+              "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Infrastructure\\Auction.Infrastructure.csproj"
               },
-              "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj": {
-                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj"
+              "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj": {
+                "projectPath": "C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction.Services\\Auction.Services.csproj"
               }
             }
           }

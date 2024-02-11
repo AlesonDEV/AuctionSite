@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Auctiion.DataAccess.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240209121036_Init")]
-    partial class Init
+    [Migration("20240210163843_Second")]
+    partial class Second
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,7 @@ namespace Auctiion.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasColumnName("auction_id");
 
-                    b.Property<int>("CurrentBuyerId")
+                    b.Property<int?>("CurrentBuyerId")
                         .HasColumnType("int")
                         .HasColumnName("current_buyer_id");
 
@@ -622,9 +622,7 @@ namespace Auctiion.DataAccess.Migrations
 
                     b.HasOne("Auction.Domain.Models.Customer", "Customer")
                         .WithMany("AuctionDetails")
-                        .HasForeignKey("CurrentBuyerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CurrentBuyerId");
 
                     b.Navigation("Auction");
 

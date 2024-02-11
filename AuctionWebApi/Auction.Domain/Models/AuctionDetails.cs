@@ -17,7 +17,7 @@ namespace Auction.Domain.Models
 
         [Column("current_buyer_id")]
         [ForeignKey(nameof(Customer))]
-        public int CurrentBuyerId { get; set; }
+        public int? CurrentBuyerId { get; set; }
 
         [Required]
         [MinLength(70)]

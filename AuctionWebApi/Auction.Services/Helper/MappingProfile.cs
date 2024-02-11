@@ -13,7 +13,7 @@ namespace Auction.Services.Helper
     {
         public MappingProfile()
         {
-            CreateMap<Auction.Domain.Models.Auction, AuctionDto>();
+            CreateMap<Auction.Domain.Models.Auction, AuctionPreviewDto>();
             CreateMap<Category, CategoryDto>();
         }
     }

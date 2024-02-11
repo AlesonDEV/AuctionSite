@@ -1,7 +1,10 @@
 ﻿using Auctiion.DataAccess.Services;
 using Auction.Domain.Abstractions;
 using Auction.Domain.Dto;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Net.Http;
 
 namespace Auction.WebApi.Controllers
 {
@@ -23,8 +26,14 @@ namespace Auction.WebApi.Controllers
         public async Task<IActionResult> Register(RegisterDto registerDto)
         {
             var response = await _userRepository.RegisterAccount(registerDto);
-            
-            return StatusCode(response.Code, response);
+
+            var responseData = new
+            {
+                token = response.Token,
+                message = response.Message,
+            };
+
+            return StatusCode(response.Code, responseData);
         }
 
         [HttpPost("login")]
@@ -35,7 +44,13 @@ namespace Auction.WebApi.Controllers
         {
             var response = await _userRepository.LoginAccount(loginDTO);
 
-            return StatusCode(response.Code, response);
+            var responseData = new
+            {
+                token = response.Token,
+                message = response.Message,
+            };
+
+            return StatusCode(response.Code, responseData);
         }
     }
 }

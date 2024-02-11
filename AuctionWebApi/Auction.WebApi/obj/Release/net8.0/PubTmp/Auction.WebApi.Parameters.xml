@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="AuctionWebApiAleson" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction\.WebApi\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
+  <parameter name="IIS Web Application Name" description="" value="AuctionWebApi20240209224917" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction\.WebApi\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
   </parameter>
-  <parameter name="Auctiion.DataAccess.Data.DataContext" description="" value="Server=tcp:auctiondbserverwebapi.database.windows.net,1433;Initial Catalog=Auction;Persist Security Info=False;User ID=Aleson;Password=Nazar0686270700;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\jorda\\source\\repos\\AuctionSite\\AuctionWebApi\\Auction\.WebApi\\obj\\Release\\net8\.0\\PubTmp\\EFSQLScripts\\Auctiion\.DataAccess\.Data\.DataContext\.sql$" />
+  <parameter name="Auctiion.DataAccess.Data.DataContext" description="" value="Server=tcp:auctionwebapidbserveraleson.database.windows.net,1433;Initial Catalog=Auction;Persist Security Info=False;User ID=Aleson;Password=Nazar0686270700;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\jorda\\source\\repos\\AuctionWebApi\\Auction\.WebApi\\obj\\Release\\net8\.0\\PubTmp\\EFSQLScripts\\Auctiion\.DataAccess\.Data\.DataContext\.sql$" />
   </parameter>
 </parameters>

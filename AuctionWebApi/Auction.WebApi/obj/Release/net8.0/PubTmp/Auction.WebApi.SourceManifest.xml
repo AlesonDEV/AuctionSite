@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.WebApi\obj\Release\net8.0\PubTmp\Out\" />
-  <dbfullsql path="C:\Users\jorda\source\repos\AuctionSite\AuctionWebApi\Auction.WebApi\obj\Release\net8.0\PubTmp\EFSQLScripts\Auctiion.DataAccess.Data.DataContext.sql" />
+  <IisApp path="C:\Users\jorda\source\repos\AuctionWebApi\Auction.WebApi\obj\Release\net8.0\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\jorda\source\repos\AuctionWebApi\Auction.WebApi\obj\Release\net8.0\PubTmp\EFSQLScripts\Auctiion.DataAccess.Data.DataContext.sql" />
 </sitemanifest>

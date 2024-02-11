@@ -20,7 +20,7 @@ namespace Auctiion.DataAccess.Services
 
         public async Task<bool> CreatePersonContactAsync(PersonContact personContact)
         {
-            await _context.PersonContacts.AddAsync(personContact);
+            await _context.AddAsync(personContact);
             return await SaveAsync();
         }
 

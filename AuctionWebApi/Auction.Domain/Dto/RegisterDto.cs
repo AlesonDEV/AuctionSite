@@ -10,7 +10,6 @@ namespace Auction.Domain.Dto
     //Dto for get info from client for registration
     public class RegisterDto
     {
-        public string? Id { get; set; } = string.Empty;
 
         [Required]
         public string FirstName { get; set; } = string.Empty;
