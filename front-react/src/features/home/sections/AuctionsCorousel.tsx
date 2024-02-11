@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import * as React from 'react';
 import Typography from "@mui/joy/Typography";
@@ -9,13 +9,16 @@ import AuctionsApiManager from "@/features/auctions/api/AuctionsApiManager";
 import {IAuction} from "@/features/auctions/api/AuctionsApiManager";
 import Loader from "@/components/Loader";
 
-export const AuctionsCorousel = () => {
-    const AuctionsData = useGetRequest<IAuction[]>({
-        queryKey: ['getAuctions'],
-        queryFn: AuctionsApiManager.getAuctions,
-        params: {count: 3},
-        select: data => data.data as IAuction[]
-    })
+export const AuctionsCorousel = async () => {
+    // const AuctionsData = useGetRequest<IAuction[]>({
+    //     queryKey: ['getAuctions'],
+    //     queryFn: AuctionsApiManager.getAuctions,
+    //     params: {count: 3},
+    //     select: data => data.data as IAuction[]
+    // })
+
+    const AuctionsData = await AuctionsApiManager.getAuctions({count: 3})
+
 
     return (
         <section style={{
@@ -31,7 +34,7 @@ export const AuctionsCorousel = () => {
                 color={'success'}
             >The Most Sought-After Auctions</Typography>
             <Stack direction={'row'} spacing={'2rem'}>
-                <Loader isLoading={AuctionsData.isLoading}>
+                <Loader isLoading={!AuctionsData.status}>
                     {
 
                         AuctionsData.data?.map((auction: IAuction) => (

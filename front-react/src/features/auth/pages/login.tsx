@@ -39,6 +39,7 @@ export default function LoginPage() {
         watch,
         setError,
         formState: {errors},
+        getValues,
     } = useForm<Inputs>();
 
     const logInRequest = usePostRequest({
@@ -48,6 +49,8 @@ export default function LoginPage() {
         },
         onSuccess: (data, variables, context) => {
             Cookies.set(COOKIES.ACCESS, data.data['access_token']);
+            Cookies.set(COOKIES.EMAIL, getValues('email'));
+
             // Cookies.set(COOKIES.REFRESH, data.data['refresh_token']);
             // router.push('/');
             router.push('/');

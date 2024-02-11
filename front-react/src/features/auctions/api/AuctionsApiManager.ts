@@ -60,4 +60,5 @@ export default class AuctionsApiManager {
     // }
 }
 
-export const randomImageUrl = 'https://random.imagecdn.app/500/150'
+// export const randomImageUrl = 'https://random.imagecdn.app/500/150'
+export const randomImageUrl = 'https://picsum.photos/200';

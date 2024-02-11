@@ -13,7 +13,7 @@ import {usePostRequest} from "@/hooks/usePostRequest";
 
 const MakeABid = lazy(() => import('../components/MakeABid'))
 
-const SingleAuction = (props: NextProps) => {
+const SingleAuction = (props: any) => {
     const AuctionID: number = props.params.id as number;
 
     const AuctionData = useGetRequest<IAuctionResponse>({
@@ -75,6 +75,7 @@ const SingleAuction = (props: NextProps) => {
                             maxWidth: '20rem',
                             objectFit: 'cover',
                             borderRadius: '8px',
+                            backgroundColor: 'white',
                         }}
                     />
                     <Box sx={{

@@ -5,7 +5,7 @@ import ButtonLink from "@/features/home/sections/components/ButtonLink";
 import Typography from "@mui/joy/Typography";
 import type {IAuction} from "@/features/auctions/api/AuctionsApiManager";
 import {randomImageUrl} from "@/features/auctions/api/AuctionsApiManager";
-
+import Image from "next/image";
 export const AuctionCarouselItem: React.FC<{ auction: IAuction }> = ({auction}) => {
     return (
         <Card
@@ -14,8 +14,9 @@ export const AuctionCarouselItem: React.FC<{ auction: IAuction }> = ({auction}) 
             }}
             variant={'soft'}
         >
-            <img
+            <Image
                 src={randomImageUrl}
+                alt={''}
                 style={{
                     width: '12rem',
                     height: '12rem',
@@ -24,6 +25,8 @@ export const AuctionCarouselItem: React.FC<{ auction: IAuction }> = ({auction}) 
                     position: 'relative',
                     bottom: "4rem",
                 }}
+                width={200}
+                height={200}
             />
             <Box sx={{
                 margin: '-3rem 0 1rem 0',
