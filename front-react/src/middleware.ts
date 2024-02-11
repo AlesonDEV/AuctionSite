@@ -9,14 +9,12 @@ export function middleware(request: NextRequest) {
 
     if (
         AuthRequire.includes(request.nextUrl.pathname) && (
-            !request.cookies.get(COOKIES.ACCESS) ||
-            !request.cookies.get(COOKIES.REFRESH)
+            !request.cookies.get(COOKIES.ACCESS)
         )
     ) {
         return NextResponse.redirect(new URL('/login', request.url));
     }
 // }
-
     return NextResponse.next();
 }
 

@@ -15,7 +15,7 @@ import {usePostRequest} from '@/hooks/usePostRequest';
 import AuthApiManager from '@/api/managers/AuthApiManager';
 import {COOKIES} from '@/api/apiConsts';
 import {Card, FormHelperText} from '@mui/joy';
-import {AxiosError} from 'axios';
+import type {AxiosError} from 'axios';
 import {useRouter} from 'next/navigation';
 
 
