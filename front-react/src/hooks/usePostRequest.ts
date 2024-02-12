@@ -24,7 +24,6 @@ export function usePostRequest<
   queryClient?: QueryClient
 ): UseMutationResult<TData, TError, TVariables, TContext> {
   const router = useRouter();
-  const [lastData, setLastData] = <any>useState();
 
   const mutation = useMutation({
     ...options,

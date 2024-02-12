@@ -39,12 +39,12 @@ const MyAccountLayout: React.FC<{children: React.ReactNode}> = ({children}) => {
                             >Create Auction</Link>
                         </Box>
                     </Box>
-                    <Divider
-                        sx={{
-                            marginLeft: '2rem',
-                            transform: 'rotate(90deg)',
-                        }}
-                    />
+                    {/*<Divider*/}
+                    {/*    sx={{*/}
+                    {/*        marginLeft: '2rem',*/}
+                    {/*        transform: 'rotate(90deg)',*/}
+                    {/*    }}*/}
+                    {/*/>*/}
                 </Box>
                 <Box>{children}</Box>
             </Box>

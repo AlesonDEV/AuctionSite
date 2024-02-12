@@ -5,6 +5,7 @@ import {Divider, List, ListItem, Sheet} from "@mui/joy";
 // import ButtonLink from "@/features/home/sections/components/ButtonLink";
 import AuctionListItem from "@/features/auctions/components/AuctionListItem";
 import AuctionsApiManager from "@/features/auctions/api/AuctionsApiManager";
+import Typography from "@mui/joy/Typography";
 
 
 const Bulk = async () => {
@@ -18,22 +19,31 @@ const Bulk = async () => {
                 minHeight: '100vh',
                 padding: '2rem',
             }}>
-                <List>
-                    {
-                        AuctionData.data.map(auction => (
-                            <React.Fragment key={auction.auctionId}>
-                                <AuctionListItem auction={auction}/>
-                                <Divider
-                                    sx={{
-                                        maxWidth: '50rem'
-                                    }}
-                                />
-                            </React.Fragment>
-                        ))
-                    }
+                <Box>
 
-                    {/*<AuctionListItem />*/}
-                </List>
+                    <Typography level={'h2'}>Auctions</Typography>
+                </Box>
+                <Box sx={{
+                    display: 'flex'
+                }}>
+                    <Box>
+
+                    </Box>
+                    <List>
+                        {
+                            AuctionData.data.map(auction => (
+                                <React.Fragment key={auction.auctionId}>
+                                    <AuctionListItem auction={auction}/>
+                                    <Divider
+                                        sx={{
+                                            maxWidth: '50rem'
+                                        }}
+                                    />
+                                </React.Fragment>
+                            ))
+                        }
+                    </List>
+                </Box>
             </Box>
         </section>
     )
